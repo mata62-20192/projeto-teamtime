@@ -9,6 +9,6 @@ package sistemaacademico.classes;
  *
  * @author guest-ychbik
  */
-public class Universidade {
+public class CursoDisciplinaObrigatoria {
     
 }
