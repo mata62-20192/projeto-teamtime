@@ -5,6 +5,8 @@
  */
 package sistemaacademico.classes;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author guest-ychbik
@@ -13,6 +15,7 @@ public class Disciplina {
     private String nome;
     private String codigo;
     private int cargaHoraria;
+    private ArrayList<Disciplina> preRequisitos;
 
     public Disciplina(String nome, String código, int cargaHoraria) {
         this.nome = nome;
