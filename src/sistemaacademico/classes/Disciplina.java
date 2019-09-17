@@ -21,7 +21,7 @@ public class Disciplina {
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public void setNome(String nome) {
@@ -29,7 +29,7 @@ public class Disciplina {
     }
 
     public String getCodigo() {
-        return codigo;
+        return this.codigo;
     }
 
     public void setCodigo(String código) {
@@ -37,7 +37,7 @@ public class Disciplina {
     }
 
     public int getCargaHoraria() {
-        return cargaHoraria;
+        return this.cargaHoraria;
     }
 
     public void setCargaHoraria(int cargaHoraria) {
