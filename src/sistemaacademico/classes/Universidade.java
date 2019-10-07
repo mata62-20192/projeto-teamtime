@@ -5,15 +5,12 @@
  */
 package sistemaacademico.classes;
 
-/**
- *
- * @author guest-ychbik
- */
-public class Departamento {
+
+public class Universidade {
     private String nome;
     private String sigla;
 
-    public Departamento(String nome, String sigla) {
+    public Universidade(String nome, String sigla) {
         this.nome = nome;
         this.sigla = sigla;
     }

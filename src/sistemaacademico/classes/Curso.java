@@ -7,13 +7,12 @@ package sistemaacademico.classes;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author guest-ychbik
- */
+
 public class Curso {
     private String nome;
-    private ArrayList<Disciplina> disciplinasObrigatorias, disciplinasOptativas;
+    private ArrayList<DisciplinaObrigatoria> disciplinasObrigatoria ;
+    private ArrayList<DisciplinaOptativa>  disciplinasOptativas;
+    
 
     public Curso(String nome) {
         this.nome = nome;
