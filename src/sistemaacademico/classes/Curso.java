@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Curso {
     private String nome;
-    private ArrayList<DisciplinaObrigatoria> disciplinasObrigatoria ;
+    private ArrayList<DisciplinaObrigatoria> disciplinasObrigatorias ;
     private ArrayList<DisciplinaOptativa>  disciplinasOptativas;
     
 
@@ -19,11 +19,19 @@ public class Curso {
     }
 
     public String getNome() {
-        return this.nome;
+        return nome;
     }
 
     public void setNome(String nome) {
        this.nome = nome;
     }
+    
+    public void insertDisciplinaObrigatoria(DisciplinaObrigatoria disciplina) {
+		this.disciplinasObrigatorias.add(disciplina);
+	}
+    
+    public void insertDisciplinaOptativas(DisciplinaOptativa disciplina) {
+		this.disciplinasOptativas.add(disciplina);
+	}
     
 }
