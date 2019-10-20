@@ -5,7 +5,8 @@ public class Aluno {
 	private String nome;
 	private String Senha;
 	private int matricula;
-
+	private Historico historico;
+	
 	public String getNome() {
 		return nome;
 	}

@@ -1,6 +1,6 @@
 package sistemaacademico.classes;
 
-public class ComponentCurricular {
+public class ComponenteCurricular {
 
 	private String Codigo;
 	private String nome;
@@ -10,7 +10,7 @@ public class ComponentCurricular {
 	private String conceito;
 	private int semestre;
 	
-	public ComponentCurricular(String codigo, String nome, String cargaHoraria, String natureza, int nota,
+	public ComponenteCurricular(String codigo, String nome, String cargaHoraria, String natureza, int nota,
 			String conceito, int semestre) {
 		super();
 		Codigo = codigo;
