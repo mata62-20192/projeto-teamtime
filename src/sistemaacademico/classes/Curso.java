@@ -12,6 +12,7 @@ public class Curso {
     private String nome; 
     private ArrayList<DisciplinaCurso> disciplinas;
     private int semestres;
+	private int quantidadeDeSemestres;
 
     public Curso(String nome) {
         this.nome = nome;
@@ -45,7 +46,7 @@ public class Curso {
     				System.out.println(disciplinas.get(i).getNome());
     			}
     		} 
-    		
+    		semestreAtual++;
     	}
     }
 
