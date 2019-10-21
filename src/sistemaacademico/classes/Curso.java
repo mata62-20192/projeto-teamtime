@@ -39,8 +39,7 @@ public class Curso {
     
     public void disciplinaSemetre(){
     	int semestreAtual=1;
-    	int quantitadeDeSemestres= this.getSemestres();
-		for(int j=0; j<quantidadeDeSemestres; j++ ) { 
+		for(int j=0; j<this.getSemestres(); j++ ) { 
     		for (int i = 0; i < disciplinas.size(); i++) {	
     			if( disciplinas.get(i).getSemestre() == semestreAtual ) {
     				System.out.println(disciplinas.get(i).getNome());
