@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class Curso {
     private String nome; 
     private ArrayList<DisciplinaCurso> disciplinas;
+    private int semestres;
 
     public Curso(String nome) {
         this.nome = nome;
@@ -36,12 +37,25 @@ public class Curso {
 	}
     
     public void disciplinaSemetre(){
-    	for (int i = 0; i < disciplinas.size(); i++) {	
-    		if( disciplinas.get(i).getSemestre() == i ) {
-    			System.out.println(disciplinas.get(i).getNome());
-    		}
-		} 
+    	int semestreAtual=1;
+    	int quantitadeDeSemestres= this.getSemestres();
+		for(int j=0; j<quantidadeDeSemestres; j++ ) { 
+    		for (int i = 0; i < disciplinas.size(); i++) {	
+    			if( disciplinas.get(i).getSemestre() == semestreAtual ) {
+    				System.out.println(disciplinas.get(i).getNome());
+    			}
+    		} 
+    		
+    	}
     }
+
+	public int getSemestres() {
+		return semestres;
+	}
+
+	public void setSemestres(int semestres) {
+		this.semestres = semestres;
+	}
     
     
 }
