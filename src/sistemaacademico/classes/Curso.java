@@ -12,7 +12,6 @@ public class Curso {
     private String nome; 
     private ArrayList<DisciplinaCurso> disciplinas;
     private int semestres;
-	private int quantidadeDeSemestres;
 
     public Curso(String nome) {
         this.nome = nome;
@@ -40,7 +39,7 @@ public class Curso {
     public void disciplinaSemetre(){
     	int semestreAtual=1;
 		for(int j=0; j<this.getSemestres(); j++ ) { 
-    		for (int i = 0; i < disciplinas.size(); i++) {	
+    		for (int i = 1; i <= disciplinas.size(); i++) {	
     			if( disciplinas.get(i).getSemestre() == semestreAtual ) {
     				System.out.println(disciplinas.get(i).getNome());
     			}

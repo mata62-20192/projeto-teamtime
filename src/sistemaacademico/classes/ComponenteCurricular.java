@@ -2,7 +2,7 @@ package sistemaacademico.classes;
 
 public class ComponenteCurricular {
 
-	private String Codigo;
+	private String codigo;
 	private String nome;
 	private String cargaHoraria;
 	private String natureza;
@@ -12,8 +12,7 @@ public class ComponenteCurricular {
 	
 	public ComponenteCurricular(String codigo, String nome, String cargaHoraria, String natureza, int nota,
 			String conceito, int semestre) {
-		super();
-		Codigo = codigo;
+		this.codigo = codigo;
 		this.nome = nome;
 		this.cargaHoraria = cargaHoraria;
 		this.natureza = natureza;
@@ -22,12 +21,35 @@ public class ComponenteCurricular {
 		this.semestre = semestre;
 	} 
 	
+	public void printComponenteCurricular() {
+		System.out.println(this.getNome());
+		//System.out.println(this.getCodigo());
+		//System.out.println(this.getConceito());
+		//System.out.println(this.getCargaHoraria());
+		//System.out.println(this.getSemestre());
+		//System.out.println(this.getNatureza());
+		if(existeNota()) {
+			System.out.println(this.getNota());
+		}
+		else {
+			System.out.println("-");
+		}
+	}
+	
+	public boolean existeNota() {
+		if(this.getNota()!=-1) {
+			return true;
+		}
+		else
+			return false;
+	}
+	
 	public String getCodigo() {
-		return Codigo;
+		return codigo;
 	}
 
 	public void setCodigo(String codigo) {
-		Codigo = codigo;
+		this.codigo = codigo;
 	}
 
 	public String getNome() {
@@ -55,7 +77,10 @@ public class ComponenteCurricular {
 	}
 
 	public int getNota() {
-		return nota;
+		if(this.conceito == "aprovado" || this.conceito=="reprovado por falta")
+			return nota;
+		else
+			return -1;
 	}
 
 	public void setNota(int nota) {
