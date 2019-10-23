@@ -2,32 +2,39 @@ package sistemaacademico.classes;
 
 public class ComponenteCurricular {
 
-	private String Codigo;
+	private String codigo;
 	private String nome;
 	private String cargaHoraria;
 	private String natureza;
 	private int nota;
 	private String conceito;
 	private int semestre;
-	
+
 	public ComponenteCurricular(String codigo, String nome, String cargaHoraria, String natureza, int nota,
 			String conceito, int semestre) {
-		super();
-		Codigo = codigo;
+		this.codigo = codigo;
 		this.nome = nome;
 		this.cargaHoraria = cargaHoraria;
 		this.natureza = natureza;
 		this.nota = nota;
 		this.conceito = conceito;
 		this.semestre = semestre;
-	} 
-	
+	}
+
+	public boolean existeNota() {
+		if(this.getNota()!=-1) {
+			return true;
+		}
+		else
+			return false;
+	}
+
 	public String getCodigo() {
-		return Codigo;
+		return codigo;
 	}
 
 	public void setCodigo(String codigo) {
-		Codigo = codigo;
+		this.codigo = codigo;
 	}
 
 	public String getNome() {
@@ -55,7 +62,10 @@ public class ComponenteCurricular {
 	}
 
 	public int getNota() {
-		return nota;
+		if(this.conceito == "aprovado" || this.conceito=="reprovado por falta")
+			return nota;
+		else
+			return -1;
 	}
 
 	public void setNota(int nota) {

@@ -1,22 +1,21 @@
 package sistemaacademico.classes;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 public class DisciplinaCurso {
 
 	private int semestre;
-	private String nome; 
+	private Disciplina disciplina;
 	private String natureza;
-	private ArrayList<Disciplina> preRequisito;
-	
-	public DisciplinaCurso(int semestre, String nome, String natureza, ArrayList<Disciplina> preRequisito) {
-		super();
+	private HashSet<Disciplina> preRequisito = new HashSet<>();
+
+	public DisciplinaCurso(Disciplina disciplina, int semestre, String natureza, HashSet<Disciplina> preRequisito) {
 		this.semestre = semestre;
-		this.nome = nome;
+		this.disciplina = disciplina;
 		this.natureza = natureza;
 		this.preRequisito = preRequisito;
 	}
-	
+
 	public int getSemestre() {
 		return semestre;
 	}
@@ -24,10 +23,10 @@ public class DisciplinaCurso {
 		this.semestre = semestre;
 	}
 	public String getNome() {
-		return nome;
+		return disciplina.getNome();
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNome(Disciplina disciplina) {
+		this.disciplina = disciplina;
 	}
 	public String getNatureza() {
 		return natureza;
@@ -35,14 +34,18 @@ public class DisciplinaCurso {
 	public void setNatureza(String natureza) {
 		this.natureza = natureza;
 	}
-	public ArrayList<Disciplina> getPreRequisito() {
+	public HashSet<Disciplina> getPreRequisito() {
 		return preRequisito;
 	}
-	public void setPreRequisito(ArrayList<Disciplina> preRequisito) {
+	public void setPreRequisito(HashSet<Disciplina> preRequisito) {
 		this.preRequisito = preRequisito;
 	}
-	
-    
-	
-	
+
+	public String getCodigo() {
+		return disciplina.getCodigo();
+	}
+
+	public int getCargaHoraria () {
+		return disciplina.getCargaHoraria();
+	}
 }
