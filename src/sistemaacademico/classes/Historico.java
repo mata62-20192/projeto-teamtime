@@ -20,10 +20,8 @@ public class Historico {
 		}
 		return semestre;
 	}
-
 	public Historico() {
 	}
-
 	public void printHistorico(){
     	for(int i = 1; i <=semestre; i++) {
     		for(int j =0; j < componentes.size();j++) {

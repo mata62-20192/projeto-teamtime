@@ -28,7 +28,6 @@ public class ComponenteCurricular {
 		else
 			return false;
 	}
-
 	public String getCodigo() {
 		return codigo;
 	}
