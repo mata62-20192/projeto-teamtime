@@ -3,10 +3,18 @@ package sistemaacademico.classes;
 public class Aluno {
 	
 	private String nome;
-	private String Senha;
+	private String senha;
 	private int matricula;
+	private Curso curso;
 	private Historico historico;
-	
+
+	public Aluno(String nome, String senha, int matricula, Curso curso) {
+		this.nome = nome;
+		this.senha = senha;
+		this.matricula = matricula;
+		this.curso = curso;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -16,11 +24,11 @@ public class Aluno {
 	}
 
 	public String getSenha() {
-		return Senha;
+		return senha;
 	}
 
 	public void setSenha(String senha) {
-		Senha = senha;
+		senha = senha;
 	}
 
 	public int getMatricula() {
@@ -31,8 +39,8 @@ public class Aluno {
 		this.matricula = matricula;
 	}
 
-	public Aluno() {
-		// TODO Auto-generated constructor stub
+	public Historico getHistorico() {
+		return historico;
 	}
 
 }

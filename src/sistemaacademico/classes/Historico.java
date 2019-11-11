@@ -6,10 +6,10 @@ import java.util.Comparator;
 
 public class Historico {
 
-	private int semestre; 
+	private int semestre;
 	private ArrayList<ComponenteCurricular> componentes;
 	private Double somaDasNotas;
-	
+
 	public int getSemestreAtual() {
 		somaDasNotas=0.0;
 		for (int i =0; i <componentes.size();i++) {
@@ -20,23 +20,20 @@ public class Historico {
 		}
 		return semestre;
 	}
-	
 	public Historico() {
-		// TODO Auto-generated constructor stub
 	}
-	
 	public void printHistorico(){
     	for(int i = 1; i <=semestre; i++) {
     		for(int j =0; j < componentes.size();j++) {
     			if( componentes.get(i).getSemestre() == i ) {
-    				componentes.get(i).printComponenteCurricular();
+    				//componentes.get(i).printComponenteCurricular();
     			}
     		}
     	}
     	System.out.println(this.calculaCR());
     }
-	
-	
+
+
 	public Double calculaCR() {
 		Double cr;
 		cr = this.somaDasNotas/componentes.size();
