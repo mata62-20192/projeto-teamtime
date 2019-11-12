@@ -9,7 +9,7 @@ public class ComponenteCurricular {
 	private int nota;
 	private String conceito;
 	private int semestre;
-	
+
 	public ComponenteCurricular(String codigo, String nome, String cargaHoraria, String natureza, int nota,
 			String conceito, int semestre) {
 		this.codigo = codigo;
@@ -19,23 +19,8 @@ public class ComponenteCurricular {
 		this.nota = nota;
 		this.conceito = conceito;
 		this.semestre = semestre;
-	} 
-	
-	public void printComponenteCurricular() {
-		System.out.println(this.getNome());
-		//System.out.println(this.getCodigo());
-		//System.out.println(this.getConceito());
-		//System.out.println(this.getCargaHoraria());
-		//System.out.println(this.getSemestre());
-		//System.out.println(this.getNatureza());
-		if(existeNota()) {
-			System.out.println(this.getNota());
-		}
-		else {
-			System.out.println("-");
-		}
 	}
-	
+
 	public boolean existeNota() {
 		if(this.getNota()!=-1) {
 			return true;
@@ -43,7 +28,6 @@ public class ComponenteCurricular {
 		else
 			return false;
 	}
-	
 	public String getCodigo() {
 		return codigo;
 	}
