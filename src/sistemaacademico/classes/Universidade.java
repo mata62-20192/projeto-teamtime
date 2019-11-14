@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Universidade {
     private String nome;
     private String sigla;
-    private ArrayList<Curso> cursos = new ArrayList<>();
+    public ArrayList<Curso> cursos = new ArrayList<>();
     private ArrayList<Disciplina> disciplinas = new ArrayList<>();
 
     public Universidade(String nome, String sigla) {
