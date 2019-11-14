@@ -13,6 +13,7 @@ public class Aluno {
 		this.senha = senha;
 		this.matricula = matricula;
 		this.curso = curso;
+		historico = new Historico();
 	}
 
 	public String getNome() {
@@ -28,7 +29,7 @@ public class Aluno {
 	}
 
 	public void setSenha(String senha) {
-		senha = senha;
+		this.senha = senha;
 	}
 
 	public int getMatricula() {

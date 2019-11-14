@@ -9,6 +9,10 @@ public class Historico {
 	private int semestre;
 	private ArrayList<ComponenteCurricular> componentes;
 	private Double somaDasNotas;
+	
+	public Historico() {
+		
+	}
 
 	public int getSemestreAtual() {
 		somaDasNotas=0.0;
@@ -20,8 +24,7 @@ public class Historico {
 		}
 		return semestre;
 	}
-	public Historico() {
-	}
+	
 	public void printHistorico(){
     	for(int i = 1; i <=semestre; i++) {
     		for(int j =0; j < componentes.size();j++) {
