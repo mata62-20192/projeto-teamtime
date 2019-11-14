@@ -1,9 +1,10 @@
 package sistemaacademico;
 
-import sistemaacademico.classes.*;
 import java.io.File;
 import java.util.HashSet;
 import java.util.Scanner;
+
+import br.ufba.mata62.teamtime.domain.*;
 
 public class SistemaAcademico {
 

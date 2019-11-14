@@ -1,4 +1,4 @@
-package sistemaacademico.classes;
+package br.ufba.mata62.teamtime.domain;
 
 import java.io.FileWriter;
 import java.io.IOException;
