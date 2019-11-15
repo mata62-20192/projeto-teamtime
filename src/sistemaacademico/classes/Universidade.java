@@ -24,17 +24,17 @@ public class Universidade {
     }
 
     public Curso getCurso (String codigo) {
-//        for (Curso curso : cursos) {
-//            if (curso.getCodigo() == codigo) {
-//                return curso;
-//            }
-//        }
-        return cursos.get(0);
+        for (Curso curso : cursos) {
+            if (curso.getCodigo().equals(codigo)) {
+                return curso;
+            }
+        }
+        return null;
     }
 
     public Disciplina findDisciplina(String codigo) {
         for (Disciplina disciplina: disciplinas) {
-            if (disciplina.getCodigo() == codigo) {
+            if (disciplina.getCodigo().equals(codigo)) {
                 return disciplina;
             }
         }
@@ -49,17 +49,7 @@ public class Universidade {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getSigla() {
         return sigla;
     }
-
-    public void setSigla(String sigla) {
-        this.sigla = sigla;
-    }
-    
-    
 }

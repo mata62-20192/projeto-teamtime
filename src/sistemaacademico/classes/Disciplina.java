@@ -17,25 +17,16 @@ public class Disciplina {
         return this.nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
     public String getCodigo() {
         return this.codigo;
     }
 
-    public void setCodigo(String código) {
-        if(nome.length() == 6) this.nome = nome;
-    }
 
     public int getCargaHoraria() {
         return this.cargaHoraria;
     }
 
-    public void setCargaHoraria(int cargaHoraria) {
-        this.cargaHoraria = cargaHoraria;
-    }
-    
+
     
 }
