@@ -15,8 +15,9 @@ public class LeitorDeArquivo {
 	
 	public boolean leArquivo() {
 		try {
-            File file = new File(System.getProperty("user.dir") + "/dados.txt");
-            System.out.println(file.getAbsolutePath());
+			 File file = new File("../dados.txt");
+			 //File file = new File(System.getProperty("user.dir") + "/dados.txt");
+			System.out.println(file.getAbsolutePath());
             Scanner input = new Scanner(file);
 
             int numCursos = input.nextInt();
