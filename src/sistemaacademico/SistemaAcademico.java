@@ -6,9 +6,10 @@ public class SistemaAcademico {
 
     public static void main(String[] args) {
     	Universidade universidade = new Universidade("Universidade Federal da Bahia", "UFBA");
-        LeitorDeArquivo lei = new LeitorDeArquivo(universidade, "dados.txt");
-        lei.leArquivo();
+        LeitorDeArquivo file = new LeitorDeArquivo(universidade, "dados.txt");
+        file.leArquivo();
         System.out.println(universidade.cursos.size());
+
         Curso curso = universidade.getCurso("316130");
 
         Disciplina comunicacao = universidade.findDisciplina("ADM202");
@@ -24,7 +25,6 @@ public class SistemaAcademico {
         aluno.getHistorico().imprimeHTML();
         curso.imprimeTXT();
 
-        System.out.println(123);
     }
     
 }

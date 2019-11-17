@@ -65,7 +65,6 @@ public class Historico implements FormatosDeImpressao.ImprimeHTML, FormatosDeImp
 		return cargaHoraria;
 	}
 
-	@Override
 	public void imprimeTXT() {
 		try {
 			PrintWriter writer = new PrintWriter("historico.txt", "UTF-8");
