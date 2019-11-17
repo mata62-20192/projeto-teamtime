@@ -9,49 +9,26 @@ import br.ufba.mata62.teamtime.domain.*;
 public class SistemaAcademico {
 
     public static void main(String[] args) {
-        try {
-            File file = new File("C:\\Users\\vini0\\IdeaProjects\\projeto-teamtime1\\src\\sistemaacademico\\dados.txt");
-            Scanner input = new Scanner(file);
+    	Universidade universidade = new Universidade("Universidade Federal da Bahia", "UFBA");
+        LeitorDeArquivo file = new LeitorDeArquivo(universidade, "dados.txt");
+        file.leArquivo();
+        System.out.println(universidade.cursos.size());
 
-            Universidade universidade = new Universidade("Universidade Federal da Bahia", "UFBA");
+        Curso curso = universidade.getCurso("316130");
 
-            int numCursos = input.nextInt();
-            for (int i = 0; i < numCursos; i++) {
-                // Le nome
-                input.nextLine();
-                String nome = input.nextLine();
-                String codigo = input.nextLine();
-                int numDisciplinas = input.nextInt();
-                Curso curso = new Curso(nome, codigo);
-                universidade.addCurso(curso);
+        Disciplina comunicacao = universidade.findDisciplina("ADM202");
+        Disciplina estudosOrganizacionais = universidade.findDisciplina("ADMF54");
 
-                for (int j = 0; j < numDisciplinas; j++) {
-                    // ADMF52 1 OB 34 20102
-                    input.nextLine();
-                    String nomeDisc = input.nextLine();
-                    String codigoDisc = input.next();
-                    int semestre = input.nextInt();
-                    String natureza = input.next();
-                    int ch = input.nextInt();
-                    String curriculo = input.next();
+        Aluno aluno = new Aluno("Matheus", "1234", 12345678, curso);
+        aluno.setSemestre(1);
+        aluno.fazerMateria(new ComponenteCurricular(comunicacao, ComponenteCurricular.Natureza.OB, 9.5, ComponenteCurricular.Conceito.APROVADO, 1));
+        aluno.fazerMateria(new ComponenteCurricular(estudosOrganizacionais, ComponenteCurricular.Natureza.OB, 5.1, ComponenteCurricular.Conceito.APROVADO, 1));
 
-                    Disciplina disciplina = universidade.findDisciplina(codigoDisc);
-                    if (disciplina == null) {
-                        disciplina = new Disciplina(nomeDisc, codigoDisc, ch);
-                        universidade.addDisciplina(disciplina);
-                    }
-                    DisciplinaCurso disciplinaCurso = new DisciplinaCurso(disciplina, semestre, natureza, new HashSet<Disciplina>());
-                    curso.addDisciplinaCurso(disciplinaCurso);
-                }
-            }
+        System.out.println(aluno.getHistorico().getCargaHoraria());
+        aluno.getHistorico().imprimeTXT();
+        aluno.getHistorico().imprimeHTML();
+        curso.imprimeTXT();
 
-            //Curso oi = universidade.getCurso("105");
-            //oi.imprimeCurriculo("html");
-
-            input.close();
-        } catch (Exception e) {
-            System.out.println("Deu erro mans: " + e);
-        }
     }
     
 }

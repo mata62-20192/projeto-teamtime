@@ -13,34 +13,35 @@ public class Aluno {
 		this.senha = senha;
 		this.matricula = matricula;
 		this.curso = curso;
+		historico = new Historico(0);
+	}
+
+	public void fazerMateria(ComponenteCurricular componenteCurricular) {
+		historico.addMateria(componenteCurricular);
 	}
 
 	public String getNome() {
 		return nome;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
 	public String getSenha() {
 		return senha;
-	}
-
-	public void setSenha(String senha) {
-		senha = senha;
 	}
 
 	public int getMatricula() {
 		return matricula;
 	}
 
-	public void setMatricula(int matricula) {
-		this.matricula = matricula;
-	}
-
 	public Historico getHistorico() {
 		return historico;
+	}
+	
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setSemestre(int semestre){
+		historico.setSemestreAtual(semestre);
 	}
 
 }

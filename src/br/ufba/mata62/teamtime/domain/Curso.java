@@ -1,14 +1,14 @@
 package br.ufba.mata62.teamtime.domain;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import sistemaacademico.interfaces.FormatosDeImpressao;
+
+import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
-import java.util.Map;
 
 
-public class Curso {
+public class Curso implements FormatosDeImpressao.ImprimeHTML, FormatosDeImpressao.ImprimeTXT {
     private String nome;
     private String codigo;
     private HashMap<Integer, Semestre> semestres = new HashMap<Integer, Semestre>();
@@ -26,10 +26,6 @@ public class Curso {
 		return codigo;
 	}
 
-    public void setNome(String nome) {
-       this.nome = nome;
-    }
-
     public void addDisciplinaCurso(DisciplinaCurso disciplina) {
     	Semestre semestre = semestres.get(disciplina.getSemestre());
 
@@ -41,66 +37,40 @@ public class Curso {
 
     }
 
-    public void imprimeCurriculo(String formato) throws IOException {
-
-		FileWriter fileWriter;
-		PrintWriter printWriter;
-
-    	if (formato == "html") {
-			fileWriter = new FileWriter("historico.html");
-			printWriter = new PrintWriter(fileWriter);
-			printWriter.print("<!DOCTYPE html>" +
-							"<html>" +
-							"<head>" +
-							"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
-							"<title>$title</title>" +
-							"</head>" +
-							"<body>"
-					);
-
-		} else {
-			fileWriter = new FileWriter("C:\\Users\\vini0\\IdeaProjects\\projeto-teamtime1\\src\\sistemaacademico\\historico.txt");
-			printWriter = new PrintWriter(fileWriter);
+	@Override
+	public void imprimeTXT() {
+		try {
+			PrintWriter writer = new PrintWriter("curriculo.txt", "UTF-8");
+			writer.println("Curriculo do curso: " + getNome());
+			imprimeCurriculo(writer);
+			writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
 		}
-
-		printWriter.println("Obrigatorias:");
-		for(Map.Entry<Integer, Semestre> entry : semestres.entrySet()) {
-			if (entry.getKey() == 0) {
-				continue;
-			}
-			Semestre semestre =  entry.getValue();
-			ArrayList<DisciplinaCurso> disciplinas = semestre.getDisciplinas();
-			printWriter.println();
-			printWriter.println("Semestre " + entry.getKey() + ":");
-
-			for (DisciplinaCurso disciplina : disciplinas) {
-				printWriter.println(disciplina.getNome());
-				printWriter.println(
-					"Codigo: " + disciplina.getCodigo() +
-					" Carga Horaria: "+ disciplina.getCargaHoraria()
-				);
-			}
-    	}
-
-		printWriter.println("Optativas:");
-		Semestre semestre =  semestres.get(0);
-		ArrayList<DisciplinaCurso> disciplinas = semestre.getDisciplinas();
-		printWriter.println();
-
-		for (DisciplinaCurso disciplina : disciplinas) {
-			printWriter.println(disciplina.getNome());
-			printWriter.println(
-					"Codigo: " + disciplina.getCodigo() +
-							" Carga Horaria: "+ disciplina.getCargaHoraria()
-			);
-		}
-
-		if (formato == "html") {
-			printWriter.print("</body>" +
-					"</html>");
-		}
-
-		printWriter.close();
 	}
 
+	@Override
+	public void imprimeHTML() {
+
+	}
+
+	private void imprimeCurriculo(PrintWriter writer) {
+		for (int i = 1; i < semestres.size(); i++) {
+			writer.println("---------------------------------------------------------------------------");
+			writer.println("Semestre: " + i);
+			for(int j = 0; j < semestres.get(i).getDisciplinas().size(); j++){
+				writer.println("Nome " + semestres.get(i).getDisciplinas().get(j).getNome());
+				writer.println("Codigo " + semestres.get(i).getDisciplinas().get(j).getCodigo());
+			}
+		}
+		writer.println("---------------------------------------------------------------------------");
+		writer.println("Optativas: ");
+
+		for (int i = 0; i < semestres.get(0).getDisciplinas().size(); i++){
+			writer.println("Nome " + semestres.get(0).getDisciplinas().get(i).getNome());
+			writer.println("Codigo " + semestres.get(0).getDisciplinas().get(i).getCodigo());
+		}
+	}
 }
