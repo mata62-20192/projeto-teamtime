@@ -1,4 +1,4 @@
-package sistematelas;
+package sistemaacademico.controller;
 
 import java.awt.EventQueue;
 
@@ -10,7 +10,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.Font;
 
-public class TelaInicial {
+public class TelaInicialController {
 
 	private JFrame frmSistemaAcadmico;
 
@@ -21,7 +21,7 @@ public class TelaInicial {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaInicial window = new TelaInicial();
+					TelaInicialController window = new TelaInicialController();
 					window.frmSistemaAcadmico.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -33,7 +33,7 @@ public class TelaInicial {
 	/**
 	 * Create the application.
 	 */
-	public TelaInicial() {
+	public TelaInicialController() {
 		initialize();
 	}
 
@@ -45,23 +45,23 @@ public class TelaInicial {
 		frmSistemaAcadmico.setTitle("Sistema Acad\u00EAmico - UFBA");
 		frmSistemaAcadmico.setBounds(100, 100, 800, 600);
 		frmSistemaAcadmico.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmSistemaAcadmico.getContentPane().setLayout(new MigLayout("", "[][]", "[][][][][]"));
+		frmSistemaAcadmico.getContentPane().setLayout(new MigLayout("", "[239px]", "[27px][27px][27px][27px]"));
 		
 		JButton btnCadastrarAluno = new JButton("Cadastrar Aluno");
 		btnCadastrarAluno.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmSistemaAcadmico.getContentPane().add(btnCadastrarAluno, "cell 1 1,growx");
+		frmSistemaAcadmico.getContentPane().add(btnCadastrarAluno, "cell 0 0,growx,aligny top");
 		
 		JButton btnListarAlunos = new JButton("Listar Alunos");
 		btnListarAlunos.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmSistemaAcadmico.getContentPane().add(btnListarAlunos, "cell 1 2,growx");
+		frmSistemaAcadmico.getContentPane().add(btnListarAlunos, "cell 0 1,growx,aligny top");
 		
 		JButton btnVisualizarCurrculoDo = new JButton("Visualizar Curr\u00EDculo do Curso");
 		btnVisualizarCurrculoDo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmSistemaAcadmico.getContentPane().add(btnVisualizarCurrculoDo, "cell 1 3,growx");
+		frmSistemaAcadmico.getContentPane().add(btnVisualizarCurrculoDo, "cell 0 2,growx,aligny top");
 		
 		JButton btnVisualizarEscalonament = new JButton("Visualizar Escalonamento");
 		btnVisualizarEscalonament.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frmSistemaAcadmico.getContentPane().add(btnVisualizarEscalonament, "cell 1 4,growx");
+		frmSistemaAcadmico.getContentPane().add(btnVisualizarEscalonament, "cell 0 3,growx,aligny top");
 		
 		JMenuBar menuBar = new JMenuBar();
 		frmSistemaAcadmico.setJMenuBar(menuBar);

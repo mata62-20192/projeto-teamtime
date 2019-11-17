@@ -1,4 +1,4 @@
-package sistemaacademico.classes;
+package sistemaacademico.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;

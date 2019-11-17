@@ -1,4 +1,4 @@
-package sistemaacademico.classes;
+package sistemaacademico.domain;
 
 public class Aluno {
 	

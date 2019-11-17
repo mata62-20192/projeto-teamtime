@@ -1,4 +1,4 @@
-package sistemaacademico.classes;
+package sistemaacademico.domain;
 
 import java.io.FileWriter;
 import java.io.IOException;

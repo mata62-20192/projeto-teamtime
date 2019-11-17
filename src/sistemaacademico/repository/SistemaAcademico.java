@@ -1,6 +1,6 @@
-package sistemaacademico;
+package sistemaacademico.repository;
 
-import sistemaacademico.classes.*;
+import sistemaacademico.domain.*;
 
 public class SistemaAcademico {
 
