@@ -19,14 +19,8 @@ public class DisciplinaCurso {
 	public int getSemestre() {
 		return semestre;
 	}
-	public void setSemestre(int semestre) {
-		this.semestre = semestre;
-	}
 	public String getNome() {
 		return disciplina.getNome();
-	}
-	public void setNome(Disciplina disciplina) {
-		this.disciplina = disciplina;
 	}
 	public String getNatureza() {
 		return natureza;
@@ -36,9 +30,6 @@ public class DisciplinaCurso {
 	}
 	public HashSet<Disciplina> getPreRequisito() {
 		return preRequisito;
-	}
-	public void setPreRequisito(HashSet<Disciplina> preRequisito) {
-		this.preRequisito = preRequisito;
 	}
 
 	public String getCodigo() {
