@@ -1,4 +1,4 @@
-package sistemaacademico.classes;
+package br.ufba.mata62.teamtime.domain;
 
 import java.util.zip.DeflaterOutputStream;
 
