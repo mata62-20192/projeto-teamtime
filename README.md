@@ -15,8 +15,8 @@ Para testar (parcialmente) se sua modelagem está correta, verifique se é poss�
 
 ## Entrega 1: entrega e apresentação no dia 22/10
 
-* [ ] **Leitura de dados** do sistema a partir de [arquivo texto](/aulas/mata37/web/dados.txt) fornecido pelo professor. Ver [código de exemplo](le-dados.java) 
-* [ ] Criação de **alunos** da universidade, com nome, número de matrícula (é um identificador único) e senha. Cada aluno pertence a apenas um curso.
+* [x] **Leitura de dados** do sistema a partir de [arquivo texto](/aulas/mata37/web/dados.txt) fornecido pelo professor. Ver [código de exemplo](le-dados.java) 
+* [x] Criação de **alunos** da universidade, com nome, número de matrícula (é um identificador único) e senha. Cada aluno pertence a apenas um curso.
 * [ ] Criação de **histórico** de um aluno: lista de componentes curriculares cursados por semestre, indicando código, nome, carga horária, natureza, nota e conceito (aprovado, reprovado por nota, reprovado por falta, dispensa, trancamento). Só existe nota quando o conceito é aprovado ou reprovado por nota.
     * [x] Impressão do histórico, com cálculo da carga horária total (optativa e obrigatória) e CR (nota média) do aluno. Considere que o CR é calculado através da média simples das notas.
     * [x] A impressão dos histórico deve poder ser feita em dois formatos diferentes: TXT e HTML
@@ -49,7 +49,7 @@ Considere uma arquitetura da seguinte forma:
 * [ ] As telas do sistema devem estar em um pacote chamado `*.controller`, com sufixo Controller (ex.: CurriculoController)
 * [ ] As operações do sistema devem estar em classes do pacote `*.service`, com sufixo Service (ex.: AlunoService)
 * [ ] Código de acesso a arquivo deve estar em classes do pacote `*.repository`, com sufixo Repository
-* [ ] Controller, Service e Repository devem ser estruturados em camadas
+* [x] Controller, Service e Repository devem ser estruturados em camadas
 * [ ] Todos os pacotes podem acessar o pacote `*.domain`
 * [ ] Não deve haver lógica de negócio nos controllers; use os services para isso
 * [ ] Cenários de erro devem resultar em uma exceção customizada sendo lançada pelo service e tratada pelo controller
