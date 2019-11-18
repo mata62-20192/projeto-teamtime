@@ -71,9 +71,7 @@ public class Historico implements FormatosDeImpressao.ImprimeHTML, FormatosDeImp
 			writer.println("Histórico:");
 			imprimeHistorico(writer);
 			writer.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 	}
@@ -94,9 +92,7 @@ public class Historico implements FormatosDeImpressao.ImprimeHTML, FormatosDeImp
 
 			writer.println("<body/>");
 			writer.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 	}

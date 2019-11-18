@@ -1,5 +1,10 @@
 package sistemaacademico.classes;
 
+import br.ufba.mata62.teamtime.domain.Curso;
+import br.ufba.mata62.teamtime.domain.Disciplina;
+import br.ufba.mata62.teamtime.domain.DisciplinaCurso;
+import br.ufba.mata62.teamtime.domain.Universidade;
+
 import java.io.File;
 import java.util.HashSet;
 import java.util.Scanner;

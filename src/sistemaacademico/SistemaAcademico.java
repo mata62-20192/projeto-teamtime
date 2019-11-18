@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 import br.ufba.mata62.teamtime.domain.*;
+import sistemaacademico.classes.LeitorDeArquivo;
 
 public class SistemaAcademico {
 
