@@ -5,12 +5,14 @@ import sistemaacademico.interfaces.FormatosDeImpressao;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
 public class Curso implements FormatosDeImpressao.ImprimeHTML, FormatosDeImpressao.ImprimeTXT {
     private String nome;
     private String codigo;
+    private ArrayList<Aluno> alunos;
     private HashMap<Integer, Semestre> semestres = new HashMap<Integer, Semestre>();
 
     public Curso(String nome, String codigo) {
@@ -72,5 +74,28 @@ public class Curso implements FormatosDeImpressao.ImprimeHTML, FormatosDeImpress
 			writer.println("Nome " + semestres.get(0).getDisciplinas().get(i).getNome());
 			writer.println("Codigo " + semestres.get(0).getDisciplinas().get(i).getCodigo());
 		}
+	}
+
+	public void addAluno(Aluno aluno) throws Exception {
+		
+		for (Aluno itAluno: alunos)
+			if (itAluno.equals(aluno)) 
+				throw new Exception("Aluno já existe");
+			
+		
+		alunos.add(aluno);
+	}
+
+	public ArrayList<Aluno> getAlunos() {
+		return alunos;
+	}
+
+	public Aluno getAluno(int matricula) {
+		for (Aluno aluno: alunos)
+			if (aluno.equals(matricula))
+				return aluno; 
+		
+		//errooo;
+		return null;
 	}
 }

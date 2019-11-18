@@ -28,7 +28,8 @@ public class Universidade {
     }
 
     public Disciplina findDisciplina(String codigo) {
-        for (Disciplina disciplina: disciplinas) {
+    	
+    	for (Disciplina disciplina: disciplinas) {
             if (disciplina.getCodigo().equals(codigo)) {
                 return disciplina;
             }
@@ -37,7 +38,8 @@ public class Universidade {
     }
 
     public void addDisciplina (Disciplina disciplina) {
-        disciplinas.add(disciplina);
+    	if (findDisciplina(disciplina.getCodigo()) == null)
+    		disciplinas.add(disciplina);
     }
 
     public String getNome() {
@@ -47,4 +49,9 @@ public class Universidade {
     public String getSigla() {
         return sigla;
     }
+
+	public void addAluno(Aluno aluno, String codigoCurso) throws Exception {
+		Curso curso = getCurso(codigoCurso);
+		curso.addAluno(aluno);
+	}
 }
