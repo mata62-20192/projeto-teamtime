@@ -30,7 +30,8 @@ public class FacadeService {
 	}
 	
 	public Aluno visualizaAluno(int matricula) {
-		return curso.getAluno(matricula);
+		Aluno aluno = curso.getAluno(matricula);
+		return aluno;
 	}
 	
 	public void visualizaHistoricoAluno(Aluno aluno) {

@@ -16,6 +16,7 @@ public class TestMain {
 
         ArrayList<Aluno> alunos = facade.listaAlunos();
         System.out.println(alunos.size());
+        
         for (Aluno aluno: alunos) {
             System.out.println(aluno.getNome());
         }

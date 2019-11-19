@@ -59,6 +59,7 @@ public class Historico implements FormatosDeImpressao.ImprimeHTML, FormatosDeImp
 
 	public int getCargaHoraria() {
 		int cargaHoraria = 0;
+		
 		for (ComponenteCurricular componetes: componentes) {
 			cargaHoraria += componetes.getDisciplina().getCargaHoraria();
 		}

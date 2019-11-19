@@ -18,17 +18,18 @@ public class Universidade {
         this.cursos.add(curso);
     }
 
-    public Curso getCurso (String codigo) {
+    public Curso getCurso (String codigo) {  
+    	
         for (Curso curso : cursos) {
-            if (curso.getCodigo().equals(codigo)) {
+            if (curso.equals(codigo)) {
                 return curso;
             }
         }
-        return null;
+        return cursos.get(0);
+        //return null;
     }
 
     public Disciplina findDisciplina(String codigo) {
-    	
     	for (Disciplina disciplina: disciplinas) {
             if (disciplina.getCodigo().equals(codigo)) {
                 return disciplina;

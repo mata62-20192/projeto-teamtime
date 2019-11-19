@@ -16,7 +16,7 @@ public class SistemaAcademico {
         Disciplina comunicacao = universidade.findDisciplina("ADM202");
         Disciplina estudosOrganizacionais = universidade.findDisciplina("ADMF54");
 
-        Aluno aluno = new Aluno("Matheus", "1234", 12345678, curso);
+        Aluno aluno = new Aluno("Matheus", 1234, 12345678, curso);
         aluno.setSemestre(1);
         aluno.fazerMateria(new ComponenteCurricular(comunicacao, ComponenteCurricular.Natureza.OB, 9.5, ComponenteCurricular.Conceito.APROVADO, 1));
         aluno.fazerMateria(new ComponenteCurricular(estudosOrganizacionais, ComponenteCurricular.Natureza.OB, 5.1, ComponenteCurricular.Conceito.APROVADO, 1));
