@@ -14,7 +14,7 @@ public class InicializaService {
 			carregaDados();
 			
 		} catch (Exception e) {
-			
+			System.out.println(e);
 		}
 	}
 
@@ -23,17 +23,16 @@ public class InicializaService {
 		String SIGLA = "UFBA";
 		
 		universidade = new Universidade(NOME, SIGLA);
-		int numeroCursos = dados.proximoNumero();
+		int numeroCursos = dados.leNumeroDeCursos();
 		carregaCursosUniversidade(numeroCursos);
 		
 	}
 
 	private void carregaCursosUniversidade(int numeroCursos) {
 		for(int i=0; i< numeroCursos; i++) {
-			Curso curso = dados.leCurso();			
+			Curso curso = dados.leCurso();
 			universidade.addCurso(curso);
-			dados.proximaLinha();
-			int numeroDisciplinasCurso = dados.proximoNumero();
+			int numeroDisciplinasCurso = dados.leNumeroDisciplinasCurso();
 			carregaDisciplinasCurso(numeroDisciplinasCurso, curso);
 		}
 		
@@ -41,6 +40,7 @@ public class InicializaService {
 
 	private void carregaDisciplinasCurso(int numeroDisciplinasCurso, Curso curso) {
 		for (int i=0; i< numeroDisciplinasCurso; i++) {
+
 			DisciplinaCurso disciplina = dados.leDisciplina();
 			curso.addDisciplinaCurso(disciplina);
 			universidade.addDisciplina(disciplina.getDisciplina());

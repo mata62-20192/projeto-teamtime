@@ -1,5 +1,6 @@
 package br.ufba.mata62.teamtime.service;
 
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import br.ufba.mata62.teamtime.domain.*;
@@ -8,7 +9,7 @@ public class FacadeService {
 	
 	private Universidade universidade;
 	private Curso curso;
-	private final String PATH = "../dados.txt";
+	private final String PATH = Paths.get("").toAbsolutePath().toString()+"/src//br/ufba/mata62/teamtime/repository/dados.txt";
 	
 	public FacadeService(String codigoCurso) {
 		InicializaService inicializa = new InicializaService(PATH);
