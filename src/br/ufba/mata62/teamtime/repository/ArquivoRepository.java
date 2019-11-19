@@ -56,7 +56,6 @@ public class ArquivoRepository {
 		int ch = input.nextInt();
 		String curriculo = input.next();
 		Disciplina disciplina = new Disciplina(nomeDisc, codigoDisc, ch);
-		System.out.println(nomeDisc);
 		this.proximaLinha();
 		return new DisciplinaCurso(disciplina, semestre, natureza);
 	}
