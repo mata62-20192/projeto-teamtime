@@ -6,13 +6,16 @@ public class Aluno {
 	private String senha;
 	private int matricula;
 	private Curso curso;
+	private int semestreIngresso;
 	private Historico historico;
+	private double CR;
 
-	public Aluno(String nome, String senha, int matricula, Curso curso) {
+	public Aluno(String nome, int matricula, int semestreIngresso, Curso curso) {
 		this.nome = nome;
-		this.senha = senha;
+		this.senha = "1234";
 		this.matricula = matricula;
 		this.curso = curso;
+		this.semestreIngresso = semestreIngresso;
 		historico = new Historico(0);
 	}
 
@@ -22,6 +25,14 @@ public class Aluno {
 
 	public String getNome() {
 		return nome;
+	}
+
+	public double getCR() {
+		return CR;
+	}
+
+	public int getSemestre() {
+		return semestreIngresso;
 	}
 
 	public String getSenha() {
@@ -42,6 +53,14 @@ public class Aluno {
 
 	public void setSemestre(int semestre){
 		historico.setSemestreAtual(semestre);
+	}
+	
+	public boolean equals(Aluno a) {
+		return this.matricula == a.matricula;
+	}
+	
+	public boolean equals(int a) {
+		return this.matricula == a;
 	}
 
 }

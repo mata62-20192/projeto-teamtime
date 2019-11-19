@@ -9,6 +9,14 @@ public class DisciplinaCurso {
 	private String natureza;
 	private HashSet<Disciplina> preRequisito = new HashSet<>();
 
+	public DisciplinaCurso(Disciplina disciplina, int semestre, String natureza) {
+		this.semestre = semestre;
+		this.disciplina = disciplina;
+		this.natureza = natureza;
+		this.preRequisito = preRequisito;
+		this.preRequisito = new HashSet<Disciplina>();
+	}
+	
 	public DisciplinaCurso(Disciplina disciplina, int semestre, String natureza, HashSet<Disciplina> preRequisito) {
 		this.semestre = semestre;
 		this.disciplina = disciplina;
@@ -39,4 +47,9 @@ public class DisciplinaCurso {
 	public int getCargaHoraria () {
 		return disciplina.getCargaHoraria();
 	}
+
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
+
 }

@@ -1,21 +1,20 @@
 package br.ufba.mata62.teamtime.domain;
 
-import sistemaacademico.interfaces.FormatosDeImpressao;
-
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class Curso implements FormatosDeImpressao.ImprimeHTML, FormatosDeImpressao.ImprimeTXT {
+public class Curso {
     private String nome;
     private String codigo;
+    private ArrayList<Aluno> alunos = new ArrayList<Aluno>();
     private HashMap<Integer, Semestre> semestres = new HashMap<Integer, Semestre>();
+    private CriterioEscalonamento escalonamento;
 
     public Curso(String nome, String codigo) {
         this.codigo = codigo;
     	this.nome = nome;
+    	this.escalonamento = new EscalonamentoSemestre();
     }
 
     public String getNome() {
@@ -37,40 +36,43 @@ public class Curso implements FormatosDeImpressao.ImprimeHTML, FormatosDeImpress
 
     }
 
-	@Override
-	public void imprimeTXT() {
-		try {
-			PrintWriter writer = new PrintWriter("curriculo.txt", "UTF-8");
-			writer.println("Curriculo do curso: " + getNome());
-			imprimeCurriculo(writer);
-			writer.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
+	public HashMap<Integer, Semestre> getSemestres() {
+		return semestres;
 	}
 
-	@Override
-	public void imprimeHTML() {
-
-	}
-
-	private void imprimeCurriculo(PrintWriter writer) {
-		for (int i = 1; i < semestres.size(); i++) {
-			writer.println("---------------------------------------------------------------------------");
-			writer.println("Semestre: " + i);
-			for(int j = 0; j < semestres.get(i).getDisciplinas().size(); j++){
-				writer.println("Nome " + semestres.get(i).getDisciplinas().get(j).getNome());
-				writer.println("Codigo " + semestres.get(i).getDisciplinas().get(j).getCodigo());
+	public void addAluno(Aluno aluno) throws Exception {
+		
+		for (Aluno itAluno: alunos){
+			if (itAluno.equals(aluno)) {
+				throw new Exception("Aluno já existe");
 			}
 		}
-		writer.println("---------------------------------------------------------------------------");
-		writer.println("Optativas: ");
+		alunos.add(aluno);
+	}
 
-		for (int i = 0; i < semestres.get(0).getDisciplinas().size(); i++){
-			writer.println("Nome " + semestres.get(0).getDisciplinas().get(i).getNome());
-			writer.println("Codigo " + semestres.get(0).getDisciplinas().get(i).getCodigo());
+	public ArrayList<Aluno> getAlunos() {
+		return alunos;
+	}
+
+	public Aluno getAluno(int matricula) {
+		for (Aluno aluno: alunos) {
+			if (aluno.equals(matricula))
+				return aluno; 
 		}
+		
+		//errooo;
+		return null;
+	}
+	
+	public boolean equals(String a) {
+		return this.codigo == a;
+	}
+	
+	public void setEscalonamento(CriterioEscalonamento tipoEscalonamento) {
+		escalonamento = tipoEscalonamento;
+	}
+	
+	public ArrayList<Aluno> visualizaEscalonamento() {
+		return escalonamento.escalonaAlunos(alunos);
 	}
 }
