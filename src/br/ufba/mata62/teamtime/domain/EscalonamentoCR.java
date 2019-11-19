@@ -8,7 +8,8 @@ public class EscalonamentoCR implements CriterioEscalonamento, Comparator<Aluno>
 
 	@Override
 	public ArrayList<Aluno> escalonaAlunos(ArrayList<Aluno> alunos) {
-		return Collections.sort(alunos, new EscalonamentoCR());
+		Collections.sort(alunos, new EscalonamentoCR());
+		return alunos;
 	}
 
 	@Override
