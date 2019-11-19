@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import br.ufba.mata62.teamtime.domain.*;
+import br.ufba.mata62.teamtime.repository.ImprimeHistoricoRepositoryHTML;
 
 public class FacadeService {
 	
@@ -36,7 +37,9 @@ public class FacadeService {
 	}
 	
 	public void visualizaHistoricoAluno(Aluno aluno) {
-		aluno.getHistorico();
+
+        ImprimeHistoricoRepositoryHTML historicoHTML = new ImprimeHistoricoRepositoryHTML();
+        historicoHTML.imprimirHistorico(aluno.getHistorico());
 	}
 	
 	public HashMap<Integer, Semestre> visualizaCurriculoCurso(Curso curso) {
@@ -46,5 +49,9 @@ public class FacadeService {
 	
 	public void visualizaEscalonamentoCurso(Curso curso, String criterio) {
 		
+	}
+
+	public Universidade getUniversidade() {
+		return universidade;
 	}
 }

@@ -61,7 +61,13 @@ public class tst {
 		}
 
 		// imprime historico
-		service.visualizaHistoricoAluno(service.visualizaAluno(1234));
+		Disciplina comunicacao = service.getUniversidade().findDisciplina("ADM202");
+		Disciplina estudosOrganizacionais = service.getUniversidade().findDisciplina("ADMF54");
+
+		aluno.fazerMateria(new ComponenteCurricular(comunicacao, ComponenteCurricular.Natureza.OB, 9.5, ComponenteCurricular.Conceito.APROVADO, 1));
+		aluno.fazerMateria(new ComponenteCurricular(estudosOrganizacionais, ComponenteCurricular.Natureza.OB, 5.1, ComponenteCurricular.Conceito.APROVADO, 1));
+
+		service.visualizaHistoricoAluno(aluno);
 	}
 
 }

@@ -1,10 +1,5 @@
 package br.ufba.mata62.teamtime.domain;
 
-import sistemaacademico.interfaces.FormatosDeImpressao;
-
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
