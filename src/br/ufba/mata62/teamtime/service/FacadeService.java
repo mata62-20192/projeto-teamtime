@@ -2,8 +2,10 @@ package br.ufba.mata62.teamtime.service;
 
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import br.ufba.mata62.teamtime.domain.*;
+import br.ufba.mata62.teamtime.repository.ImprimeHistoricoRepositoryHTML;
 
 public class FacadeService {
 	
@@ -35,11 +37,14 @@ public class FacadeService {
 	}
 	
 	public void visualizaHistoricoAluno(Aluno aluno) {
-		
+
+        ImprimeHistoricoRepositoryHTML historicoHTML = new ImprimeHistoricoRepositoryHTML();
+        historicoHTML.imprimirHistorico(aluno.getHistorico());
 	}
 	
-	public void visualizaCurriculoCurso(Curso curso) {
-		
+	public HashMap<Integer, Semestre> visualizaCurriculoCurso(Curso curso) {
+		return curso.getSemestres();
+
 	}
 	
 	public ArrayList<Aluno> visualizaEscalonamentoCurso() {
@@ -48,5 +53,9 @@ public class FacadeService {
 	
 	public void mudaCriterioEscalonamento (CriterioEscalonamento tipoEscalonamento) {
 		curso.setEscalonamento(tipoEscalonamento);
+	}
+
+	public Universidade getUniversidade() {
+		return universidade;
 	}
 }

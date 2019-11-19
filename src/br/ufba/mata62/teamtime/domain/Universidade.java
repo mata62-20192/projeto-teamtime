@@ -19,9 +19,9 @@ public class Universidade {
     }
 
     public Curso getCurso (String codigo) {  
-    	
+
         for (Curso curso : cursos) {
-            if (curso.equals(codigo)) {
+            if (curso.getCodigo().equals(codigo)) {
                 return curso;
             }
         }
