@@ -9,9 +9,9 @@ import java.awt.Font;
 import javax.swing.JFormattedTextField;
 import javax.swing.JButton;
 
-public class CadastrarAlunoController {
+public class CadastrarAlunoController extends JFrame{
 
-	private JFrame frame;
+	JFrame frame;
 
 	/**
 	 * Launch the application.

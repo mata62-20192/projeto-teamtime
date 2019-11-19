@@ -11,7 +11,7 @@ public class FacadeService {
 	
 	private Universidade universidade;
 	private Curso curso;
-	private final String PATH = Paths.get("").toAbsolutePath().toString()+"/src//br/ufba/mata62/teamtime/repository/dados.txt";
+	private final String PATH = Paths.get("").toAbsolutePath().toString()+"/br/ufba/mata62/teamtime/repository/dados.txt";
 	
 	public FacadeService(String codigoCurso) {
 		InicializaService inicializa = new InicializaService(PATH);
@@ -49,13 +49,11 @@ public class FacadeService {
 	
 	public ArrayList<Aluno> visualizaEscalonamentoCurso() {
 		return curso.visualizaEscalonamento();
+
 	}
 	
 	public void mudaCriterioEscalonamento (CriterioEscalonamento tipoEscalonamento) {
 		curso.setEscalonamento(tipoEscalonamento);
 	}
 
-	public Universidade getUniversidade() {
-		return universidade;
-	}
 }
