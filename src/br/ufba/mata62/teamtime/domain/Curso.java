@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class Curso implements FormatosDeImpressao.ImprimeHTML, FormatosDeImpressao.ImprimeTXT {
     private String nome;
     private String codigo;
-    private ArrayList<Aluno> alunos;
+    private ArrayList<Aluno> alunos = new ArrayList<>();
     private HashMap<Integer, Semestre> semestres = new HashMap<Integer, Semestre>();
 
     public Curso(String nome, String codigo) {
@@ -77,12 +77,12 @@ public class Curso implements FormatosDeImpressao.ImprimeHTML, FormatosDeImpress
 	}
 
 	public void addAluno(Aluno aluno) throws Exception {
-		
-		for (Aluno itAluno: alunos)
-			if (itAluno.equals(aluno)) 
+		for (Aluno itAluno: alunos){
+			if (itAluno.equals(aluno)) {
 				throw new Exception("Aluno já existe");
-			
-		
+			}
+		}
+
 		alunos.add(aluno);
 	}
 
