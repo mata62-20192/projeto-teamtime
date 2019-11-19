@@ -1,4 +1,4 @@
-package sistemaacademico.controller;
+package br.ufba.mata62.teamtime.controller;
 
 import java.awt.EventQueue;
 

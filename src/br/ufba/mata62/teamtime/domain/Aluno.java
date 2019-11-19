@@ -6,15 +6,16 @@ public class Aluno {
 	private String senha;
 	private int matricula;
 	private Curso curso;
-	private int SemestreIngresso;
+	private int semestreIngresso;
 	private Historico historico;
+	private double CR;
 
 	public Aluno(String nome, int matricula, int semestreIngresso, Curso curso) {
 		this.nome = nome;
 		this.senha = "1234";
 		this.matricula = matricula;
 		this.curso = curso;
-		this.SemestreIngresso = semestreIngresso;
+		this.semestreIngresso = semestreIngresso;
 		historico = new Historico(0);
 	}
 
@@ -24,6 +25,14 @@ public class Aluno {
 
 	public String getNome() {
 		return nome;
+	}
+
+	public double getCR() {
+		return CR;
+	}
+
+	public int getSemestre() {
+		return semestreIngresso;
 	}
 
 	public String getSenha() {

@@ -1,12 +1,28 @@
 package br.ufba.mata62.teamtime.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
-public class EscalonamentoSemestre implements CriterioEscalonamento {
+public class EscalonamentoSemestre implements CriterioEscalonamento, Comparator<Aluno> {
 
 	@Override
 	public ArrayList<Aluno> escalonaAlunos(ArrayList<Aluno> alunos) {
-		return null;
+		Collections.sort(alunos, new EscalonamentoCR());
+		return alunos;
+	}
+
+	@Override
+	public int compare(Aluno a, Aluno b) {
+		if (a.getSemestre()>b.getSemestre())
+			return 1;
+		else if (a.getSemestre()<b.getSemestre())
+			return 0;
+
+		if (a.getCR()>=b.getCR())
+			return 1;
+		else
+			return 0;
 	}
 	
 }

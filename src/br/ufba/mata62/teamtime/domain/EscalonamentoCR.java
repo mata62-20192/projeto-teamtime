@@ -14,7 +14,15 @@ public class EscalonamentoCR implements CriterioEscalonamento, Comparator<Aluno>
 
 	@Override
 	public int compare(Aluno a, Aluno b) {
-		return a.getCR()-b.getCR();
+		if (a.getCR()>b.getCR())
+			return 1;
+		else if (a.getCR()<b.getCR())
+			return 0;
+
+		if (a.getSemestre()>=b.getSemestre())
+			return 1;
+		else
+			return 0;
 	}
 
 }

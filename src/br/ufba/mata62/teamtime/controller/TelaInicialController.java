@@ -1,9 +1,9 @@
-package sistemaacademico.controller;
+package br.ufba.mata62.teamtime.controller;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import net.miginfocom.swing.MigLayout;
+//import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
