@@ -1,6 +1,7 @@
 package br.ufba.mata62.teamtime.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import br.ufba.mata62.teamtime.domain.*;
 import br.ufba.mata62.teamtime.service.*;
@@ -10,7 +11,7 @@ public class tst {
 	public static void main(String[] args) {
 		
 		// carrega dados dos cursos no sistema e seleciona curso
-		String cursoCodigo = "316130";
+		String cursoCodigo = "112140";
 		FacadeService service = new FacadeService(cursoCodigo);
 		
 		// cadastra alunos
@@ -33,8 +34,34 @@ public class tst {
 			System.out.println("listaAlunos() OK");
 		else
 			System.out.println("listaAlunos() ERRO");
-		
-		
+
+		// imprime curriculo
+		Curso curso = service.visualizaAluno(1234).getCurso();
+		HashMap<Integer, Semestre> semestres = service.visualizaCurriculoCurso(curso);
+//		System.out.println(curso.getNome());
+//		System.out.println("OBRIGATÓRIAS");
+
+		for (int i = 1; i < semestres.size(); i++) {
+//			System.out.println("Semestre: " + i);
+			for(int j = 0; j < semestres.get(i).getDisciplinas().size(); j++){
+//				System.out.print(semestres.get(i).getDisciplinas().get(j).getCodigo());
+//				System.out.print(" - ");
+//				System.out.print(semestres.get(i).getDisciplinas().get(j).getCargaHoraria());
+//				System.out.print(" - ");
+//				System.out.println(semestres.get(i).getDisciplinas().get(j).getNome());
+			}
+		}
+//		System.out.println("OPTATIVAS");
+		for (int i = 0; i < semestres.get(0).getDisciplinas().size(); i++){
+//			System.out.print(semestres.get(0).getDisciplinas().get(i).getCodigo());
+//			System.out.print(" - ");
+//			System.out.print(semestres.get(0).getDisciplinas().get(i).getCargaHoraria());
+//			System.out.print(" - ");
+//			System.out.println(semestres.get(0).getDisciplinas().get(i).getNome());
+		}
+
+		// imprime historico
+		service.visualizaHistoricoAluno(service.visualizaAluno(1234));
 	}
 
 }

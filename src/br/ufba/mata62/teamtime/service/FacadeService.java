@@ -2,6 +2,7 @@ package br.ufba.mata62.teamtime.service;
 
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import br.ufba.mata62.teamtime.domain.*;
 
@@ -35,11 +36,12 @@ public class FacadeService {
 	}
 	
 	public void visualizaHistoricoAluno(Aluno aluno) {
-		
+		aluno.getHistorico();
 	}
 	
-	public void visualizaCurriculoCurso(Curso curso) {
-		
+	public HashMap<Integer, Semestre> visualizaCurriculoCurso(Curso curso) {
+		return curso.getSemestres();
+
 	}
 	
 	public void visualizaEscalonamentoCurso(Curso curso, String criterio) {

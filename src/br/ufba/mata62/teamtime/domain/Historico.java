@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
-public class Historico implements FormatosDeImpressao.ImprimeHTML, FormatosDeImpressao.ImprimeTXT{
+public class Historico {
 
 	private int semestre;
 	private ArrayList<ComponenteCurricular> componentes;
@@ -79,7 +79,6 @@ public class Historico implements FormatosDeImpressao.ImprimeHTML, FormatosDeImp
 		}
 	}
 
-	@Override
 	public void imprimeHTML() {
 		try {
 			PrintWriter writer = new PrintWriter("historico.html", "UTF-8");
@@ -101,7 +100,6 @@ public class Historico implements FormatosDeImpressao.ImprimeHTML, FormatosDeImp
 			e.printStackTrace();
 		}
 	}
-
 	private void imprimeHistorico(PrintWriter writer) {
 		writer.println("Carga Horária: " + getCargaHoraria());
 		writer.println("CR: " + calculaCR());
@@ -114,5 +112,9 @@ public class Historico implements FormatosDeImpressao.ImprimeHTML, FormatosDeImp
 			writer.println("Conceito: " + componentes.getConceito().name());
 			writer.println("Semestre: " + componentes.getSemestre());
 		}
+	}
+
+	public ArrayList<ComponenteCurricular> getComponentes() {
+		return componentes;
 	}
 }
