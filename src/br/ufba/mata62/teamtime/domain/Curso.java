@@ -14,10 +14,12 @@ public class Curso implements FormatosDeImpressao.ImprimeHTML, FormatosDeImpress
     private String codigo;
     private ArrayList<Aluno> alunos = new ArrayList<Aluno>();
     private HashMap<Integer, Semestre> semestres = new HashMap<Integer, Semestre>();
+    private CriterioEscalonamento escalonamento;
 
     public Curso(String nome, String codigo) {
         this.codigo = codigo;
     	this.nome = nome;
+    	this.escalonamento = new EscalonamentoSemestre();
     }
 
     public String getNome() {
@@ -102,5 +104,13 @@ public class Curso implements FormatosDeImpressao.ImprimeHTML, FormatosDeImpress
 	
 	public boolean equals(String a) {
 		return this.codigo == a;
+	}
+	
+	public void setEscalonamento(CriterioEscalonamento tipoEscalonamento) {
+		escalonamento = tipoEscalonamento;
+	}
+	
+	public ArrayList<Aluno> visualizaEscalonamento() {
+		return escalonamento.escalonaAlunos(alunos);
 	}
 }

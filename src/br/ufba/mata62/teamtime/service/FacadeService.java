@@ -42,7 +42,11 @@ public class FacadeService {
 		
 	}
 	
-	public void visualizaEscalonamentoCurso(Curso curso, String criterio) {
-		
+	public ArrayList<Aluno> visualizaEscalonamentoCurso() {
+		return curso.visualizaEscalonamento();
+	}
+	
+	public void mudaCriterioEscalonamento (CriterioEscalonamento tipoEscalonamento) {
+		curso.setEscalonamento(tipoEscalonamento);
 	}
 }
