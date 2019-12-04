@@ -5,6 +5,8 @@ import br.ufba.mata62.teamtime.service.FacadeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class FacadeServiceTest {
@@ -13,37 +15,31 @@ class FacadeServiceTest {
 
     @BeforeEach
     public void init() {
-        FacadeService facade = new FacadeService("105");
+        facade = new FacadeService("112140");
+        facade.cadastraAluno("John", 123123123, 20192);
     }
 
     @Test
     public void testCadastraAluno() {
-        facade.cadastraAluno("John", 123123123, 20192);
-
-        assertNotEquals(0, facade.listaAlunos().size());
+        facade.cadastraAluno("AAA", 321321321, 20192);
     }
 
     @Test
     public void testListaAlunos() {
+        assertTrue(facade.listaAlunos() instanceof ArrayList);
+        assertEquals(1, facade.listaAlunos().size());
     }
 
     @Test
     public void testvisualizaAluno() {
-    }
+        Aluno aluno = facade.visualizaAluno(123123123);
 
-    @Test
-    public void testVisualizaHistoricoAluno() {
-    }
-
-    @Test
-    public void testVisualizaCurriculoCurso() {
+        assertNotNull(aluno);
     }
 
     @Test
     public void testVisualizaEscalonamentoCurso() {
-    }
-
-    @Test
-    public void testMudaCriterioEscalonamento() {
+        assertTrue(facade.visualizaEscalonamentoCurso() instanceof ArrayList);
+        assertEquals(1, facade.visualizaEscalonamentoCurso().size());
     }
 }
